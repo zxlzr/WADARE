@@ -7,10 +7,10 @@ import network
 import json
 from sklearn.metrics import average_precision_score
 import sys
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
-tf.app.flags.DEFINE_string('export_path','./target_data','path to data')
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+tf.app.flags.DEFINE_string('export_path','./source_data','path to data')
 
-config_file = open(os.path.join('target_data', "config"), 'r')
+config_file = open(os.path.join('source_data', "config"), 'r')
 config = json.loads(config_file.read())
 config_file.close()
 
@@ -28,9 +28,9 @@ tf.app.flags.DEFINE_float('learning_rate',0.5,'entity numbers used each training
 tf.app.flags.DEFINE_float('weight_decay',0.00001,'weight_decay')
 tf.app.flags.DEFINE_float('drop_prob',0.5,'dropout rate')
 
-tf.app.flags.DEFINE_string('checkpoint_dir', './target_checkpoint/', 'path to store checkpoint')
-tf.app.flags.DEFINE_string('summary_dir', './target_summary', 'path to store summary_dir')
-tf.app.flags.DEFINE_string('test_result_dir', './target_result', 'path to store the test results')
+tf.app.flags.DEFINE_string('checkpoint_dir', './source_checkpoint/', 'path to store checkpoint')
+tf.app.flags.DEFINE_string('summary_dir', './source_summary', 'path to store summary_dir')
+tf.app.flags.DEFINE_string('test_result_dir', './source_result', 'path to store the test results')
 tf.app.flags.DEFINE_integer('save_epoch', 2, 'save the checkpoint after how many epoches')
 
 tf.app.flags.DEFINE_string('model_name', 'pcnn_att', 'model\'s name')

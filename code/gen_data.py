@@ -4,11 +4,11 @@ import json
 import os
 
 # folder of training datasets
-data_path = "./target_data/"
+data_path = "./source_data/"
 # files to export data
-export_path = "./target_data/"
+export_path = "./source_data/"
 if not os.path.exists('./source_data'):
-    os.mkdir('./target_data')
+    os.mkdir('./source_data')
 #length of sentence
 fixlen = 120
 #max length of position embedding is 100 (-100~+100)
@@ -52,7 +52,7 @@ def init_relation():
     # reading relation ids...
     global relation2id
     print('reading relation ids...')
-    f = open(data_path + "common_relation2id.txt","r")
+    f = open(data_path + "common_relation.txt","r")
     total = (int)(f.readline().strip())
     print(total)
     for i in range(total):
